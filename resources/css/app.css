@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* Los colores y las tipografias del sitio del curso, para que el refugio se vea
+   igual que en las diapositivas. Con @theme, Tailwind arma una utilidad por
+   cada variable: --color-primario se puede usar como bg-primario, text-primario
+   o border-primario. */
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-titulo: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+    --color-lienzo: #f7f7fb;
+    --color-tinta: #1b1736;
+    --color-apagado: #6b6790;
+    --color-linea: #e6e3f1;
+
+    --color-primario: #5b3df5;
+    --color-primario-fuerte: #4a2fd0;
+    --color-primario-suave: #efeafe;
+
+    --color-coral: #ff7a59;
+    --color-coral-suave: #fff0eb;
+
+    --color-exito: #16794a;
+    --color-exito-linea: #b6e6cd;
+    --color-exito-suave: #e7f8ef;
+
+    --color-peligro: #b42318;
+    --color-peligro-linea: #f2c6c6;
+    --color-peligro-suave: #fdecec;
+    --color-peligro-tenue: #fff7f7;
+
+    --radius-tarjeta: 16px;
+    --shadow-tarjeta: 0 10px 30px -12px rgb(27 23 54 / 0.25);
+}
+
+/* El mensaje de confirmacion y los errores entran con un desplazamiento chico,
+   igual que en las diapositivas. */
+@keyframes refugio-entra {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.entra {
+    animation: refugio-entra 240ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .entra { animation: none; }
+}
