@@ -70,7 +70,7 @@ y esos tres fallan. Para mirar el sitio en el navegador no hace falta, porque
 | --- | --- |
 | `database/migrations/2026_07_31_105744_create_animales_table.php` | Describe la tabla `animales`: una línea por columna. |
 | `app/Models/Animal.php` | El modelo. Las dos líneas de adentro son `$table` (porque el pluralizador de Laravel es inglés y deduciría `animals`) y `$fillable`. |
-| `app/Http/Controllers/AnimalController.php` | Un método por ruta: `index`, `create`, `store`, `edit`, `update`, `adoptar` y `destroy`. |
+| `app/Http/Controllers/AnimalController.php` | Un método por ruta: `index`, `create`, `store`, `edit`, `update`, `adoptar` y `destroy`. La validación del formulario va con `$request->validate()` dentro de `store()` y de `update()`. |
 | `routes/web.php` | Las siete rutas, escritas una por una. |
 | `resources/views/layouts/app.blade.php` | El marco que comparten todas las páginas, de la clase 9. Acá vive el mensaje verde de confirmación. |
 | `resources/views/animales/index.blade.php` | La lista. |
@@ -78,11 +78,6 @@ y esos tres fallan. Para mirar el sitio en el navegador no hace falta, porque
 | `resources/views/animales/editar.blade.php` | El formulario para editar. |
 | `app/Http/Controllers/AuthController.php` | Registro, login y logout, escritos a mano. |
 | `app/Policies/AnimalPolicy.php` | La regla del dueño: solo quien registró un animal puede editarlo o borrarlo. |
-| `app/Http/Requests/GuardarAnimalRequest.php` | Las reglas y los mensajes del formulario de animal, en un solo lugar. |
-| `resources/views/auth/registro.blade.php` | El formulario para crear cuenta. |
-| `resources/views/auth/login.blade.php` | El formulario para entrar. |
-
-La fecha en el nombre de la migración es la del día en que se grabó este
 proyecto. Cuando la crees tú con `php artisan make:migration
 create_animales_table`, va a llevar la fecha de ese momento, y está bien: ese
 número solo sirve para ordenarlas.
